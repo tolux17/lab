@@ -8,6 +8,8 @@ pipeline {
         CLASS = "CLASS OF 13"
 
         AUTHOR = "TOLULOPE GBADAMOSI"
+
+        BRANCH_NAME ="main"
     }
 
     stages {
