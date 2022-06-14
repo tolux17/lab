@@ -33,7 +33,7 @@ pipeline {
             echo "We are testing the pipeline"
         }
 
-        sucess {
+        success {
 
             echo "Our pipeline is successfully run"
         }
