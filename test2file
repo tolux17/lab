@@ -28,4 +28,19 @@ pipeline {
             }
         }
     }
+    post {
+        always {
+            echo "We are testing the pipeline"
+        }
+
+        sucess {
+
+            echo "Our pipeline is successfully run"
+        }
+
+        failed {
+
+            echo "Our pipeline failed"
+        }
+    }
 }
