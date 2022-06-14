@@ -8,10 +8,10 @@ pipeline {
 
             when {
 
-                expression {
+                expression { BRANCH_NAME == /(dev)/ }
 
-                    branch  "dev" 
-                }
+                    
+            
             }
 
             steps {
