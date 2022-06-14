@@ -41,6 +41,7 @@ pipeline {
             steps {
 
                 echo "I am testing.."
+                echo "Deplyoing with ${SERVER_CREDENTIALS}"
             }
         }
 
@@ -55,7 +56,7 @@ pipeline {
     post {
         always {
             echo "We are testing the pipeline"
-            echo "Deplyoing with ${SERVER_CREDENTIALS}"
+            
         }
 
         success {
