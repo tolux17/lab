@@ -28,4 +28,23 @@ pipeline {
             }
         }
     }
+
+    post {
+        always {
+
+            echo "Application Ran"
+        }
+
+        success {
+
+            echo "Application succeded"
+        }
+
+        failure {
+
+            echo "Application failed woefully"
+        }
+
+
+    }
 }
