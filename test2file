@@ -34,7 +34,7 @@ pipeline {
             steps {
 
                 echo "I am testing.."
-                echo "Deplyoing with ${SERVER_CREDENTIALS}"
+                
                 echo "Deploying version ${params.VERSION}"
             }
         }
