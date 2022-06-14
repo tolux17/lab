@@ -1,0 +1,68 @@
+pipeline {
+
+    agent any
+
+    environment {
+
+        AUTHOR  = "TOLULOPE"
+
+        NEW_VERSION = "7.3.4"
+
+        SERVER_CREDENTIALS = credentials ('PLAY-PLAY')
+    }
+
+    tools {
+        maven "MAVEN 3.6.6"
+
+        gradle "GRADLE 3.6.6"
+
+        jdk   "JKD 3.7"
+    }
+
+    parameters {
+
+        choice (name: 'VERSION', choices ['1.7.4','3.7.4','3.4.5'], description 'choices to deploy on account')
+        booleanParam(name: 'executeTests', defaultValue: true, description 'where to execute test')
+    }
+
+    stages {
+
+        stage ("test") {
+
+            steps {
+
+                echo "Application is testing"
+                echo "Building Version ${NEW_VERSION} by ${AUTHOR}"
+                echo "Deploying ${SERVER_CREDENTIALS}"
+                sh "{SERVER_CREDENTIALS}"
+            }
+        }
+
+        stage ("build") {
+
+            when {
+
+                expression {
+
+                    params.executeTests == true
+                
+                }
+            }
+
+            steps {
+
+                echo "Application is building"
+                echo "Deploying ${params.VERSION}"
+            }
+        }
+
+        stage ("deploy") {
+
+            steps {
+
+                echo "Application is deploying"
+            }
+        }
+    }
+
+}
