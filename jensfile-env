@@ -1,0 +1,40 @@
+pipeline {
+
+    agent any
+
+    environment {
+
+        AUTHOR  = "TOLULOPE"
+
+        NEW_VERSION = "7.3.4"
+    }
+
+    stages {
+
+        stage ("test") {
+
+            steps {
+
+                echo "Application is testing"
+                echo "Building Version ${NEW_VERSION} by ${AUTHOR}"
+            }
+        }
+
+        stage ("build") {
+
+            steps {
+
+                echo "Application is building"
+            }
+        }
+
+        stage ("deploy") {
+
+            steps {
+
+                echo "Application is deploying"
+            }
+        }
+    }
+
+}
