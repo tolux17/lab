@@ -4,6 +4,10 @@ pipeline {
 
     environment {
         NEW_VERSION = "1.3.0"
+
+        CLASS = "CLASS OF 13"
+
+        AUTHOR = "TOLULOPE GBADAMOSI"
     }
 
     stages {
@@ -16,6 +20,7 @@ pipeline {
 
                 echo "I am building.."
                 echo "Building ${NEW_VERSION} "
+                echo "I AM ${AUTHOR}"
             }
         }
 
