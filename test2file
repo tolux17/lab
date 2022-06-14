@@ -12,11 +12,22 @@ pipeline {
         BRANCH_NAME ="main"
 
         SERVER_CREDENTIALS = credentials('PLAY-PLAY')
+
+        parameters {
+            choice(name : 'VERSION', choices: ['1.10','1.20','1.30'], description: '')
+            booleanParam(name 'executeTests', defaultValue: true, description: '')
+        }
     }
 
     stages {
 
         stage ("build") {
+
+            when {
+                expression {
+                    params.executeTests
+                }
+            }
 
         
 
@@ -42,6 +53,7 @@ pipeline {
 
                 echo "I am testing.."
                 echo "Deplyoing with ${SERVER_CREDENTIALS}"
+                echo "Deploying version ${param.VERSION}"
             }
         }
 
