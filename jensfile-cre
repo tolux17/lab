@@ -11,13 +11,7 @@ pipeline {
         SERVER_CREDENTIALS = credentials ('PLAY-PLAY')
     }
 
-    tools {
-        maven "MAVEN 3.6.6"
-
-        gradle "GRADLE 3.6.6"
-
-        jdk   "JKD 3.7"
-    }
+    
 
     parameters {
 
