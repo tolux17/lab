@@ -21,8 +21,8 @@ pipeline {
 
     parameters {
 
-        choice (name: 'VERSION', choices ['1.7.4','3.7.4','3.4.5'], description 'choices to deploy on account')
-        booleanParam(name: 'executeTests', defaultValue: true, description 'where to execute test')
+        choice (name: 'VERSION', choices : ['1.7.4','3.7.4','3.4.5'], description :'choices to deploy on account')
+        booleanParam(name: 'executeTests', defaultValue: true, description :'where to execute test')
     }
 
     stages {
