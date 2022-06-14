@@ -10,6 +10,8 @@ pipeline {
         AUTHOR = "TOLULOPE GBADAMOSI"
 
         BRANCH_NAME ="main"
+
+        SERVER_CREDENTIALS = credentials('PLAY-PLAY')
     }
 
     stages {
@@ -53,6 +55,7 @@ pipeline {
     post {
         always {
             echo "We are testing the pipeline"
+            echo "Deplyoing with ${SERVER_CREDENTIALS}"
         }
 
         success {
