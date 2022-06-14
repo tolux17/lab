@@ -22,20 +22,14 @@ pipeline {
             steps {
 
                 echo "I am building.."
-                echo "Building ${NEW_VERSION} "
-                echo "I AM ${AUTHOR}"
+                
             }
         }
 
         stage ("test") {
 
-            when {
-
-                expression {
-
-                    BRANCH_NAME != "master"
-                }
-            }
+            
+            
 
             steps {
 
