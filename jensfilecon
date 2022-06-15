@@ -32,7 +32,7 @@ pipeline {
             when {
 
                 expression {
-                    params.Branch == false
+                    params.Branch == true
                 }
             }
 
