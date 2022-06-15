@@ -2,11 +2,19 @@ pipeline {
     agent any
 
     stages {
-        stage ('julius') {
+        stage ('Julius') {
 
             steps {
 
-                echo "My name is julius"
+                echo "My name is Julius"
+            }
+        }
+
+        stage ('Tchami') {
+
+            steps {
+
+                echo "My name is Tchami"
             }
         }
     }
