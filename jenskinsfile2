@@ -29,7 +29,7 @@ pipeline {
 
                 expression {
 
-                    BRANCH_NAME == jobs
+                    BRANCH_NAME == "jobs"
                 }
             }
 
