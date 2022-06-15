@@ -7,7 +7,7 @@ pipeline {
     }
     parameters {
 
-        booleanParam(name "Branch", defaultValue: true, description: "true or false")
+        booleanParam(name: "Branch", defaultValue: true, description: "true or false")
         choice(name: "Servers", choices: ['1.74','3.74','6.2'], description: "Used to pick server types")
     }
 
