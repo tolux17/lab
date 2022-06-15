@@ -36,4 +36,22 @@ pipeline {
         }
 
     }
+
+    post {
+
+        always {
+
+            echo "Project was written by ${AUTHOR}"
+        }
+
+        success {
+
+            echo "it ran sucessfully"
+        }
+
+        failure {
+
+            echo "it failed woefully"
+        }
+    }
 }
