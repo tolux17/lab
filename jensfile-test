@@ -1,0 +1,49 @@
+pipeline {
+
+    agent any
+
+    stages {
+
+        stage ('test') {
+
+            steps {
+
+                "echo Hello world"
+            }
+        }
+
+        stage ('build') {
+
+            steps {
+
+               echo "we are building"
+            }
+        }
+
+        stage ('deploy') {
+
+            steps {
+
+                echo "we are deploying"
+            }
+        }
+    post {
+
+        always {
+
+            echo "We are building our app"
+        }
+
+        success {
+
+            echo "Our app ran successfully"
+        }
+
+        failure {
+
+            echo "our app failed"
+        }
+    }
+    }
+   
+}

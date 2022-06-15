@@ -25,6 +25,11 @@ pipeline {
 
             steps {
 
+                script {
+
+                    
+                }
+
                 echo "Application is testing"
                 echo "Building Version ${NEW_VERSION} by ${AUTHOR}"
                 echo "Deploying ${SERVER_CREDENTIALS}"
