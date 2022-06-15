@@ -40,7 +40,7 @@ pipeline {
             echo "it failed"
         }
 
-        sucess {
+        success {
 
             echo "worked"
         }
