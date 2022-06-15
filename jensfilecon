@@ -1,10 +1,19 @@
 pipeline {
 
     agent any
+    environment {
+        BRANCH_NAME='main'
+    }
 
     stages {
 
         stage ("build") {
+            when {
+
+                expression {
+                    BRANCH_NAME == "dev"
+                }
+            }
 
             steps {
 
