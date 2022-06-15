@@ -32,7 +32,7 @@ pipeline {
             when {
 
                 expression {
-                    params.Servers
+                    params.Servers == false
                 }
             }
 
