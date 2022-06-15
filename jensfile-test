@@ -2,21 +2,26 @@ pipeline {
 
     agent any
 
+    environment {
+
+        AUTHOR='Toluope'
+    }
+
     stages {
-
-        stage ('test') {
-
-            steps {
-
-                echo "Hello world"
-            }
-        }
 
         stage ('build') {
 
             steps {
 
-               echo "we are building"
+                echo "We are building"
+            }
+        }
+
+        stage ('test') {
+
+            steps {
+
+                echo "We are testing"
             }
         }
 
@@ -24,26 +29,11 @@ pipeline {
 
             steps {
 
-                echo "we are deploying"
+                echo "We are deploying"
+
+                echo "it was written by ${AUTHOR} "
             }
         }
-    post {
 
-        always {
-
-            echo "We are building our app"
-        }
-
-        success {
-
-            echo "Our app ran successfully"
-        }
-
-        failure {
-
-            echo "our app failed"
-        }
     }
-    }
-   
 }
