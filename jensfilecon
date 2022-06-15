@@ -3,6 +3,12 @@ pipeline {
     agent any
     environment {
         BRANCH_NAME='main'
+        SERVER_CREDENTIALS=credentials('PLAY-PLAY')
+    }
+    parameters {
+
+        booleanParam(name "Branch", defaultValue: true, description: "true or false")
+        choice(name: "Servers", choices: ['1.74','3.74','6.2'], description: "Used to pick server types")
     }
 
     stages {
@@ -22,6 +28,13 @@ pipeline {
         }
 
         stage ('Test') {
+
+            when {
+
+                expression {
+                    params.Servers== true
+                }
+            }
 
             steps {
 
