@@ -20,7 +20,7 @@ pipeline {
 
                 script {
 
-                    gv = load "script.groovy"
+                    gv = load "tolux.groovy"
                 }
             }
         }
