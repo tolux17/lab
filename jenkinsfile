@@ -6,7 +6,7 @@ pipeline {
         
     }
     parameters {
-        choice(name "SERVER", choices:[ "1.7.4","3.5","4.9" ], description: "Server choice" )
+        choice(name: "SERVER", choices:[ "1.7.4","3.5","4.9" ], description: "Server choice" )
     }
 
     stages {
