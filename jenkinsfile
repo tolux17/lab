@@ -14,7 +14,7 @@ pipeline {
 
             when {
                 expression {
-                    branch "main""
+                    branch "main"
                 }
                 
             }
