@@ -1,10 +1,27 @@
 pipeline {
     agent any
 
+    environment {
+        AUTHOR = "JULIUS"
+    }
+
     stages {
         stage ('test') {
             steps {
                 echo 'We are testing'
+                echo 'Our writer is ${AUTHOR}'
+            }
+        }
+
+        stage ('build') {
+            steps {
+                echo 'We are building'
+            }
+        }
+
+        stage ('deploy') {
+            steps {
+                echo 'We are deploying'
             }
         }
     }
