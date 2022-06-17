@@ -13,9 +13,8 @@ pipeline {
         stage ('test')  {
 
             when {
-                expression {
-                    branch "main"
-                }
+                
+                    branch "main"                
                 
             }
            
