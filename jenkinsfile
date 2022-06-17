@@ -7,9 +7,13 @@ pipeline {
     }
 
     stages {
-        stage ('test') {
-           
+        stage ('test')  {
+
+            when {
+                branch main
             }
+           
+            
             steps {
                 echo 'We are testing'
                 echo "Our writer is ${AUTHOR}"
