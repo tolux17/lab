@@ -16,12 +16,17 @@ pipeline {
         stage ('build') {
             steps {
                 echo 'We are building'
+                echo "Our writer is ${AUTHOR}"
             }
         }
 
         stage ('deploy') {
+            environment {
+                CLASS = "DEVOPS"
+            }
             steps {
                 echo 'We are deploying'
+                echo "This is ${CLASS}"
             }
         }
     }
