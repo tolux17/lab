@@ -34,7 +34,7 @@ pipeline {
         stage ('deploy') {
             when {
                 expression {
-                    $params.SERVER = 4.9
+                    params.SERVER = 4.9
                 }
             }
             environment {
