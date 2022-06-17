@@ -12,5 +12,8 @@ pipeline {
         always {
             echo 'our code ran'
         }
+        success {
+            echo 'our code was successful'
+        }
     }
 }
