@@ -1,5 +1,5 @@
 pipeline {
-    agent aws
+    agent any
 
     stages {
         stage ('test') {
