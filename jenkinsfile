@@ -9,7 +9,7 @@ pipeline {
         stage ('test') {
             steps {
                 echo 'We are testing'
-                echo 'Our writer is ${AUTHOR}'
+                echo "Our writer is ${AUTHOR}"
             }
         }
 
