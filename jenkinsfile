@@ -1,10 +1,10 @@
 pipeline {
-    agent any
+    agent aws
 
     stages {
         stage ('test') {
             steps {
-                echo 'We are testing
+                echo 'We are testing'
             }
         }
     }
