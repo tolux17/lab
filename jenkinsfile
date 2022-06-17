@@ -3,15 +3,14 @@ pipeline {
 
     environment {
         AUTHOR = "JULIUS"
-        BRANCH_NAME= "main"
+        
     }
 
     stages {
         stage ('test') {
             when {
-                expression {
-                    BRANCH_NAME == "dev"
-                }
+                branch main
+            }
             }
             steps {
                 echo 'We are testing'
