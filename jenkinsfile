@@ -15,5 +15,8 @@ pipeline {
         success {
             echo 'our code was successful'
         }
+        failure {
+            echo 'our code failed'
+        }
     }
 }
