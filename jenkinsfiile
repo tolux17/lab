@@ -1,0 +1,62 @@
+pipeline {
+    agent any
+
+    environment {
+        AUTHOR = "JULIUS"
+        
+    }
+    parameters {
+        choice(name: "SERVER", choices:[ "1.7.4","3.5","4.9" ], description: "Server choice" )
+    }
+
+    stages {
+        stage ('test')  {
+
+            when {
+                
+                    branch "main"                
+                
+            }
+           
+            
+            steps {
+                echo 'We are testing'
+                echo "Our writer is ${AUTHOR}"
+                
+            }
+        }
+
+        stage ('build') {
+            steps {
+                echo 'We are building'
+                echo "Our writer is ${AUTHOR}"
+            }
+        }
+
+        stage ('deploy') {
+            when {
+                expression {
+                    params.SERVER == "4.9"
+                }
+            }
+            environment {
+                CLASS = "DEVOPS"
+            }
+            steps {
+                echo 'We are deploying'
+                echo "This is ${CLASS}"
+            }
+        }
+    }
+    post {
+        always {
+            echo 'our code ran'
+        }
+        success {
+            echo 'our code was successful'
+        }
+        failure {
+            echo 'our code failed'
+        }
+    }
+}

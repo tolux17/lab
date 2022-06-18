@@ -1,62 +1,35 @@
 pipeline {
     agent any
-
-    environment {
-        AUTHOR = "JULIUS"
-        
+    tools {
+        maven 'maven-3.6'
     }
-    parameters {
-        choice(name: "SERVER", choices:[ "1.7.4","3.5","4.9" ], description: "Server choice" )
-    }
-
     stages {
-        stage ('test')  {
-
-            when {
-                
-                    branch "main"                
-                
-            }
-           
-            
+        stage("build jar") {
             steps {
-                echo 'We are testing'
-                echo "Our writer is ${AUTHOR}"
-                
-            }
-        }
-
-        stage ('build') {
-            steps {
-                echo 'We are building'
-                echo "Our writer is ${AUTHOR}"
-            }
-        }
-
-        stage ('deploy') {
-            when {
-                expression {
-                    params.SERVER == "4.9"
+                script {
+                    echo "building the application..."
+                    sh 'mvn package'
                 }
             }
-            environment {
-                CLASS = "DEVOPS"
-            }
+        }
+        stage("build image") {
             steps {
-                echo 'We are deploying'
-                echo "This is ${CLASS}"
+                script {
+                    echo "building the docker image..."
+                    withCredentials([usernamePassword(credentialsId: 'Dockerhub', usernameVariable: 'USER', passwordVariable: 'PASS')]) {
+                        sh 'docker build -t tolux17/demo-app:1.78 .'
+                        sh "echo $PASS | docker login -u $USER --password-stdin"
+                        sh 'docker push tolux17/demo-app:1.78'
+                    }
+                }
             }
         }
-    }
-    post {
-        always {
-            echo 'our code ran'
-        }
-        success {
-            echo 'our code was successful'
-        }
-        failure {
-            echo 'our code failed'
+        stage("deploy") {
+            steps{
+                script {
+                    echo "deploying the application..."
+                }
+            }
         }
     }
 }
