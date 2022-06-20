@@ -1,34 +1,41 @@
 pipeline {
     agent any
-    tools {
-        maven 'Maven-3.6'
+
+    environment {
+
+        BRANCH_NAME="main"
     }
+
     stages {
-        stage("build jar") {
+        stage ('Julius') {
+
             steps {
-                script {
-                    echo "building the application..."
-                    sh 'mvn package'
-                }
+
+                echo "My name is Julius"
             }
         }
-        stage("build image") {
+
+        stage ('Tchami') {
+
             steps {
-                script {
-                    echo "building the docker image by me..."
-                    withCredentials([usernamePassword(credentialsId: 'Dockerhub', usernameVariable: 'USER', passwordVariable: 'PASS')]) {
-                        sh 'docker build -t tolux17/demo-app:1.78 .'
-                        sh "echo $PASS | docker login -u $USER --password-stdin"
-                        sh 'docker push tolux17/demo-app:1.78'
-                    }
-                }
+
+                echo "My name is Tchami"
             }
         }
-        stage("deploy") {
-            steps{
-                script {
-                    echo "deploying the application..."
+
+        stage ('Deploy') {
+
+            when {
+
+                expression {
+
+                    BRANCH_NAME == "jobs"
                 }
+            }
+
+            steps {
+
+                echo 'we are deploying'
             }
         }
     }
